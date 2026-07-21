@@ -5,11 +5,30 @@ requires-python = ">=3.12"
 dependencies = [
     "jupyter>=1.1.1",
     "matplotlib>=3.11.1",
-    "numpy>=2.4.4",
+    "numpy>=2.5.1",
+    "pandas>=3.0.3",
+]
+
+[project.optional-dependencies]
+torch = [
     "torch>=2.13.0",
     "torchaudio>=2.11.0",
     "torchvision>=0.28.0",
 ]
+llm = [
+    "anthropic>=0.117.0",
+    "openai>=2.46.0",
+]
 
 [[tool.uv.index]]
-url = "https://download.pytorch.org/whl/cu130"
+url = "https://download.pytorch.org/whl/cu132"
+
+[dependency-groups]
+jupyter-tools = [
+    "catppuccin-jupyterlab>=0.2.5",
+    "elyra>=4.1.1",
+    "jupyterlab-git>=0.52.0",
+    "jupyterlab-lsp>=5.1.1",
+    "jupyterlab-vim>=4.1.4",
+    "perspective>=1.0.3",
+]
