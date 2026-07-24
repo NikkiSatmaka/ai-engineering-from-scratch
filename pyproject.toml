@@ -5,13 +5,17 @@ requires-python = ">=3.12"
 dependencies = [
     "jupyter>=1.1.1",
     "matplotlib>=3.11.1",
-    "numpy>=2.4.4",
-    "pandas>=3.0.3",
+    "polars[numpy,pandas,pyarrow,pydantic]>=1.43.0",
     "scikit-learn>=1.9.0",
 ]
 
 [project.optional-dependencies]
-torch = [
+torch-cpu = [
+    "torch>=2.13.0",
+    "torchaudio>=2.11.0",
+    "torchvision>=0.28.0",
+]
+torch-cu130 = [
     "torch>=2.13.0",
     "torchaudio>=2.11.0",
     "torchvision>=0.28.0",
@@ -21,14 +25,38 @@ llm = [
     "openai>=2.46.0",
 ]
 
+[tool.uv]
+conflicts = [
+  [
+    { extra = "torch-cpu" },
+    { extra = "torch-cu130" },
+  ],
+]
+
 [tool.uv.sources]
-torch = { index = "pytorch" }
-torchvision = { index = "pytorch" }
-torchaudio = { index = "pytorch" }
+torch = [
+  { index = "pytorch-cpu", extra = "torch-cpu" },
+  { index = "pytorch-cu130", extra = "torch-cu130" },
+]
+torchvision = [
+  { index = "pytorch-cpu", extra = "torch-cpu" },
+  { index = "pytorch-cu130", extra = "torch-cu130" },
+
+]
+torchaudio = [
+  { index = "pytorch-cpu", extra = "torch-cpu" },
+  { index = "pytorch-cu130", extra = "torch-cu130" },
+]
 
 [[tool.uv.index]]
-name = "pytorch"
-url = "https://download.pytorch.org/whl/cu126"
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
 
 [dependency-groups]
 jupyter-tools = [
