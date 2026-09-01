@@ -38,12 +38,11 @@ torch = [
   { index = "pytorch-cpu", extra = "torch-cpu" },
   { index = "pytorch-cu130", extra = "torch-cu130" },
 ]
-torchvision = [
+torchaudio = [
   { index = "pytorch-cpu", extra = "torch-cpu" },
   { index = "pytorch-cu130", extra = "torch-cu130" },
-
 ]
-torchaudio = [
+torchvision = [
   { index = "pytorch-cpu", extra = "torch-cpu" },
   { index = "pytorch-cu130", extra = "torch-cu130" },
 ]
