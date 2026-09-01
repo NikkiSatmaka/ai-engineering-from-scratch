@@ -5,7 +5,7 @@ requires-python = ">=3.12"
 dependencies = [
     "jupyter>=1.1.1",
     "matplotlib>=3.11.1",
-    "polars[numpy,pandas,pyarrow,pydantic]>=1.43.0",
+    "polars[numpy,pandas,pyarrow,pydantic]==1.44.1",
     "scikit-learn>=1.9.0",
 ]
 
@@ -21,8 +21,8 @@ torch-cu130 = [
     "torchvision>=0.28.0",
 ]
 llm = [
-    "anthropic>=0.117.0",
-    "openai>=2.46.0",
+    "anthropic==1.2.0",
+    "openai==3.6.0",
 ]
 
 [tool.uv]
@@ -61,9 +61,9 @@ explicit = true
 [dependency-groups]
 jupyter-tools = [
     "catppuccin-jupyterlab>=0.2.5",
-    "elyra>=3.15.0",
-    "jupyterlab-git>=0.44.0",
-    "jupyterlab-lsp>=4.3.0",
-    "jupyterlab-vim>=0.16.0",
+    "elyra>=4.1.1",
+    "jupyterlab-git>=0.52.0",
+    "jupyterlab-lsp>=5.1.1",
+    "jupyterlab-vim>=4.1.4",
     "perspective>=1.0.3",
 ]
